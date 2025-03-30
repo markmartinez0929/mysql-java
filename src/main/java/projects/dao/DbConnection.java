@@ -3,7 +3,6 @@ package projects.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import projects.exception.DbException;
 
 public class DbConnection {
@@ -19,12 +18,11 @@ public class DbConnection {
 		
 		try {
 			Connection conn = DriverManager.getConnection(uri);
-			System.out.println("Successfully obtained connection!");
+			System.out.println("Connection to '" + SCHEMA + "' (" + uri + ") SUCCESSFUL.");
 			return conn;
 		} catch (SQLException e) {
-			System.out.println("Error obtaining connection.");
+			System.out.println("Connection to '" + SCHEMA + "' (" + uri + ") FAILED.");
 			throw new DbException(e);
 		}
 	}
-
 }
